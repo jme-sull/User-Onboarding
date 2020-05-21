@@ -6,7 +6,9 @@ export default function UserForm(props) {
         values,
         onSubmit,
         onInputChange,
-        onCheckboxChange
+        onCheckboxChange,
+        disabled,
+        errors
 
     
     } = props 
@@ -14,6 +16,15 @@ export default function UserForm(props) {
     return (
         <form  className = 'form-container' onSubmit={onSubmit} > 
             <h2>Add A User</h2>
+
+        <div className='errors'>
+                <div>{errors.first_name}</div>
+                <div>{errors.last_name}</div>
+                <div>{errors.email}</div>
+                <div>{errors.password}</div>
+                <div>{errors.terms_of_service}</div>
+        </div>
+
 
             <label>First Name&nbsp;
                 <input
@@ -61,7 +72,7 @@ export default function UserForm(props) {
                 />
             </label>
 
-            <button>Submit</button>
+            <button disabled={disabled}>Submit</button>
 
         </form>
     )
@@ -69,8 +80,3 @@ export default function UserForm(props) {
 
 } 
 
-// - [ ] Name
-// - [ ] Email
-// - [ ] Password
-// - [ ] Terms of Service (checkbox)
-// - [ ] A Submit button to send our form data to the server.
