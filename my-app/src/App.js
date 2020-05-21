@@ -27,7 +27,7 @@ const intialDisabled = true
 function App() {
 
   const [ formValues, setFormValues ] = useState(intaialFormValues)
-  const [ users, addUsers ] = useState([{}])
+  const [ users, addUsers ] = useState([])
   const [ disabled, setDisabled ] = useState(intialDisabled)
   const [ formErrors, setFormErrors ] = useState(initalFormErrors)
 
@@ -114,15 +114,19 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-
-        <h1>The Users</h1>
-        
-
         <div>
           <UserForm values={formValues} onInputChange={onInputChange} 
           onCheckboxChange={onCheckboxChange} onSubmit={onSubmit}
           disabled={disabled} errors={formErrors}/>
         </div>
+
+    <div className='users'>
+          {
+             JSON.stringify(users)
+             
+          }
+    </div>
+
       </header>
     </div>
   );

@@ -37,6 +37,15 @@
 
 }
 
+.users {
+
+  display: block;
+  text-align: center;
+  width: 10%;
+  margin: auto;
+
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
