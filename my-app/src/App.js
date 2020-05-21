@@ -125,16 +125,16 @@ function App() {
     <div>
 
       <h2>Users</h2>
+
           {
             users.map(user => {
               return (
                 <User key={user.id} firstName = {user.first_name} 
                 lastName={user.last_name} email={user.email}/>
               )
-            })
-        
-             
+            })  
           }
+
     </div>
 
       </header>
