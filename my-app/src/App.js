@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'
 import formSchema from './validation/formSchema';
 import * as yup from 'yup'
+import User from './components/User'
 
 const intaialFormValues = {
   first_name: '',
@@ -72,6 +73,7 @@ function App() {
     axios.post('https://reqres.in/api/users', newUser)
     .then(res => {
       addUsers([res.data, ...users])
+      JSON.stringify(users)
       console.log(users)
     })
     .catch(err => {
@@ -120,9 +122,17 @@ function App() {
           disabled={disabled} errors={formErrors}/>
         </div>
 
-    <div className='users'>
+    <div>
+
+      <h2>Users</h2>
           {
-             JSON.stringify(users)
+            users.map(user => {
+              return (
+                <User key={user.id} firstName = {user.first_name} 
+                lastName={user.last_name} email={user.email}/>
+              )
+            })
+        
              
           }
     </div>
